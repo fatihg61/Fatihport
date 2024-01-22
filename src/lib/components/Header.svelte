@@ -1,23 +1,76 @@
 <script>
+    import { onMount } from 'svelte';
 
+    let showOverlay = false;
+
+    onMount(() => {
+        const menuHideBtn = document.getElementById('menu-hide-btn');
+        menuHideBtn.addEventListener('click', () => showOverlay = false); // Use Svelte's reactivity for overlay state
+    });
 </script>
 
 <header>
-<div class="header">codegrid</div>
+
+ 
+<nav class="nav-menu">
+    <div class="nav-container">
+        <a href="#" class="nav-brand">Fatih G.</a>
+        <button type="button" on:click={() => showOverlay = true}>  <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="nav-overlay" class:show-overlay={showOverlay}> <div class="nav-overlay-container">
+                <button type="button" id="menu-hide-btn">
+                    <i class="fas fa-close"></i>
+                </button>
+
+                <ul class="nav-links">
+                    <li><a href="#">home</a></li>
+                    <li><a href="#">about</a></li>
+                    <li><a href="#">portfolio</a></li>
+                    <li><a href="#">contact</a></li>
+                </ul>
+                <ul class="nav-icons">
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>   
+
+<div class="header">Fatih Güler</div>
 
 <div class="container">
     <div class="text-wrapper">
-    <div class="text-1 text">less is more</div>
-    <div class="text-2 text">less is more</div>
-    <div class="text-3 text">less is more</div>
-    <div class="text-4 text">less is more</div>
-    <div class="text-5 text">less is more</div>
-    <div class="text-6 text">less is more</div>
-    <div class="text-7 text">less is more</div>
-    <div class="text-8 text">less is more</div>
-    <div class="text-9 text">less is more</div>
-    <div class="text-10 text">less is more</div>
-    <div class="text-11 text">less is more</div>
+    <div class="text-1 text">Welkom</div>
+    <div class="text-2 text">In</div>
+    <div class="text-3 text">My</div>
+    <div class="text-4 text">Portfolio</div>
+    <div class="text-5 text">Enjoy!</div>
+    <div class="text-6 text">Fatih Güler</div>
+    <div class="text-7 text">Enjoy</div>
+    <div class="text-8 text">Portfolio</div>
+    <div class="text-9 text">My</div>
+    <div class="text-10 text">In</div>
+    <div class="text-11 text">Welkom</div>
     </div>
 </div>
 </header>  
@@ -41,13 +94,13 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background: #161616;
+        background: var(--background);
         animation: slide-out-container 4s cubic-bezier(0.97, 0.01, 0.36, 0.99) 2.8s;
         animation-fill-mode: forwards;
     }
     
     .text-wrapper {
-        color: white;
+        color: var(--white);
         position: absolute;
     }
     
@@ -64,7 +117,7 @@
     .text-9,
     .text-11 {
         color: rgba(0, 0, 0, 0);
-        -webkit-text-stroke: 1px white;
+        -webkit-text-stroke: 1px var(--white);
     }
     
     @keyframes blink {
@@ -201,4 +254,146 @@
             font-size: 24px;
         }
     }
+
+    a{
+    color: var(--white-color);
+    text-decoration: none;
+}
+ul{
+    list-style-type: none;
+}
+button{
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+button:hover{
+    opacity: 0.9;
+}
+.nav-brand{
+    color: var(--white-color);
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.nav-menu{
+    background-color: var(--background);
+}
+.nav-container{
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--shark-color);
+    padding: 60px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 300ms ease-in-out;
+}
+
+/* show overlay js */
+.show-overlay{
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav-overlay-container{
+    background-color: var(--background);
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+#menu-hide-btn{
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    background-color: var(--white-color);
+    color: var(--background);
+}
+.nav-links li{
+    margin: 16px 0;
+    position: relative;
+}
+.nav-links li::before, .nav-links li::after{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background-color: var(--pink-color);
+    opacity: 0;
+    transition: all 300ms ease-in-out;
+}
+.nav-links li::before{
+    top: 0;
+    left: 0;
+}
+.nav-links li::after{
+    bottom: 0;
+    right: 0;
+}
+.nav-links li:hover::before, .nav-links li:hover::after{
+    width: 75%;
+    opacity: 1;
+}
+.nav-links li a{
+    text-transform: uppercase;
+    font-size: 40px;
+    letter-spacing: 6px;
+    font-weight: 700;
+    transition: all 300ms ease-in-out;
+}
+.nav-links li:hover a{
+    color: var(--pink-color);
+}
+.nav-icons{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+.nav-icons li{
+    border: 1px solid var(--grey-color);
+    width: 35px;
+    height: 35px;
+    margin: 0 5px;
+    line-height: 35px;
+    border-radius: 50%;
+    transition: all 300ms ease-in-out;
+}
+.nav-icons li:hover{
+    background-color: var(--pink-color);
+    border-color: var(--pink-color);
+}
+
+@media(max-width: 600px){
+    .nav-links li a{
+        font-size: 22px;
+    }
+    .nav-overlay{
+        padding: 30px;
+    }
+}
     </style>
