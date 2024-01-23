@@ -14,7 +14,7 @@
  
 <nav class="nav-menu">
     <div class="nav-container">
-        <a href="#" class="nav-brand">Fatih G.</a>
+        <a href="/" class="nav-brand">Fatih G.</a>
         <button type="button" on:click={() => showOverlay = true}>  <i class="fas fa-bars"></i>
         </button>
 
@@ -24,29 +24,14 @@
                 </button>
 
                 <ul class="nav-links">
-                    <li><a href="#">home</a></li>
+                    <li><a href="/">home</a></li>
                     <li><a href="#">about</a></li>
                     <li><a href="#">portfolio</a></li>
-                    <li><a href="#">contact</a></li>
+                    <li><a href="mailto:fkg061@gmail.com">contact</a></li>
                 </ul>
                 <ul class="nav-icons">
                     <li>
-                        <a href="#">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
+                        <a href="https://github.com/fatihg61">
                             <i class="fab fa-github"></i>
                         </a>
                     </li>
@@ -60,7 +45,7 @@
 
 <div class="container">
     <div class="text-wrapper">
-    <div class="text-1 text">Welkom</div>
+    <div class="text-1 text">Welcome</div>
     <div class="text-2 text">In</div>
     <div class="text-3 text">My</div>
     <div class="text-4 text">Portfolio</div>
@@ -70,7 +55,7 @@
     <div class="text-8 text">Portfolio</div>
     <div class="text-9 text">My</div>
     <div class="text-10 text">In</div>
-    <div class="text-11 text">Welkom</div>
+    <div class="text-11 text">Welcome</div>
     </div>
 </div>
 </header>  
