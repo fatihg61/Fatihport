@@ -135,13 +135,27 @@
       </div>
     </div>
   </div>
+  <div class=github-logo>
+  <a href="https://github.com/fatihg61" target="_blank">
+    <img src="\github-mark.png" alt="">
+  </a>
+</div>
 </section>
-
-
 
 <style>
   @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300");
 
+  .github-logo {
+  display: block;
+  margin: 0 auto;
+  width: 100px;
+}
+
+.github-logo:hover {
+  transform: scale(1.1);
+}
+
+  
   /* Base Styles
 ********************************************************************* */
   html {
