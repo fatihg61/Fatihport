@@ -8,7 +8,7 @@
       <h1>About</h1>
       <div class="block"></div>
       <p>
-        I am Fatih, a 25-year-old front-end developer student based in
+        I am Fatih, a 25-year-old front-end student based in
         Amsterdam, North Holland, Netherlands. I am passionate about creating
         beautiful and user-friendly web experiences. I am currently learning
         HTML, CSS, JavaScript, and SvelteKit at the Amsterdam University of
