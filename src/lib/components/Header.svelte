@@ -25,8 +25,7 @@
 
                 <ul class="nav-links">
                     <li><a href="/">home</a></li>
-                    <li><a href="#">about</a></li>
-                    <li><a href="#">portfolio</a></li>
+                    <li><a href="/">portfolio</a></li>
                     <li><a href="mailto:fkg061@gmail.com">contact</a></li>
                 </ul>
                 <ul class="nav-icons">

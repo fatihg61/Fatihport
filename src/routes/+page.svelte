@@ -1,14 +1,16 @@
 <script>
   import Header from "$lib/components/Header.svelte";
   import Footer from "$lib/components/Footer.svelte";
+  import About from "$lib/components/About.svelte";
 </script>
 
 <Header />
 
-<main>
+
   <h1>Hi <span class="type-animation animating">World</span>👋</h1>
   <h2>Are you ready for some awesome student work?!</h2>
-</main>
+  <About />
+
 
 <Footer />
 
@@ -48,7 +50,7 @@
   h1 {
   font-size: 4.5rem;
   text-align: center;
-  margin-top: 25vh;
+  margin-top: 6vh;
   color: var(--white);
 }
 
