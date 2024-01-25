@@ -133,8 +133,9 @@
     </div>
   </div>
   <div class=github-logo>
-    <span onclick="location.href='https://www.github.com/fatihg61'">Click me</span>
-    <img src="\github-mark.png" alt="Github Profile">
+  <a href="https://github.com/fatihg61" target="_blank">
+    <img src="\github-mark.png" alt="">
+  </a>
 </div>
 </section>
 
