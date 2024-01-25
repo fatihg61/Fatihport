@@ -99,28 +99,25 @@
     </div>
     <div class="row">
       <div class="eight columns">
-        <div class="progressBar">
-          <h4>HTML5</h4>
-          <div class="progressBarContainer">
-            <div class="progressBarValue value-90"></div>
+        <div class="skill-progress-bars">
+          <div class="progress-bar">
+            <h4>HTML</h4>
+            <meter value="80" max="100">80%</meter>
           </div>
-        </div>
-        <div class="progressBar">
-          <h4>CSS3</h4>
-          <div class="progressBarContainer">
-            <div class="progressBarValue value-80"></div>
+      
+          <div class="progress-bar">
+            <h4>CSS</h4>
+            <meter value="70" max="100">70%</meter>
           </div>
-        </div>
-        <div class="progressBar">
-          <h4>JS</h4>
-          <div class="progressBarContainer">
-            <div class="progressBarValue value-30"></div>
+      
+          <div class="progress-bar">
+            <h4>JS</h4>
+            <meter value="30" max="100">30%</meter>
           </div>
-        </div>
-        <div class="progressBar">
-          <h4>SvelteKit</h4>
-          <div class="progressBarContainer">
-            <div class="progressBarValue value-70"></div>
+      
+          <div class="progress-bar">
+            <h4>Svelte</h4>
+            <meter value="70" max="100">70%</meter>
           </div>
         </div>
       </div>
@@ -136,14 +133,50 @@
     </div>
   </div>
   <div class=github-logo>
-  <a href="https://github.com/fatihg61" target="_blank">
-    <img src="\github-mark.png" alt="">
-  </a>
+    <span onclick="location.href='https://www.github.com/fatihg61'">Click me</span>
+    <img src="\github-mark.png" alt="Github Profile">
 </div>
 </section>
 
 <style>
   @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300");
+
+
+  .skill-progress-bars {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.progress-bar {
+  width: 150px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.progress-bar h4 {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.progress-bar meter {
+  width: 100%;
+  height: 20px;
+  background-color: #eee;
+  border: none;
+}
+
+.progress-bar .progress-bar-value {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #ff0000;
+  border-radius: 0 0 5px 5px;
+}
 
   .github-logo {
   display: block;
