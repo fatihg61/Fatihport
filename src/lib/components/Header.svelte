@@ -1,5 +1,6 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount } from 'svelte';
+  import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 
   let showOverlay = false;
 
@@ -7,6 +8,31 @@
     const menuHideBtn = document.getElementById("menu-hide-btn");
     menuHideBtn.addEventListener("click", () => (showOverlay = false)); // Use Svelte's reactivity for overlay state
   });
+
+  let darkMode = false;
+
+onMount(() => {
+  const savedMode = localStorage.getItem('darkMode');
+  if (savedMode !== null) {
+    darkMode = savedMode === 'true';
+    applyTheme();
+  }
+});
+
+function toggleDarkMode() {
+  darkMode = !darkMode;
+  localStorage.setItem('darkMode', darkMode.toString());
+  applyTheme();
+}
+
+function applyTheme() {
+  const body = document.body;
+  if (darkMode) {
+    body.classList.add('dark-mode');
+  } else {
+    body.classList.remove('dark-mode');
+  }
+}
 </script>
 
 <header>
@@ -15,6 +41,14 @@
       <a href="/" class="nav-brand">Fatih G.</a>
       <button type="button" on:click={() => (showOverlay = true)}>
         <i class="fas fa-bars"></i>
+      </button>
+
+      <button class="dark-mode-toggle" on:click={toggleDarkMode}>
+        {#if darkMode}
+          <i class="fas fa-sun"></i> <!-- Sun icon for light mode -->
+        {:else}
+          <i class="fas fa-moon"></i> <!-- Moon icon for dark mode -->
+        {/if}
       </button>
 
       <div class="nav-overlay" class:show-overlay={showOverlay}>
@@ -185,5 +219,18 @@
     .nav-overlay {
       padding: 30px;
     }
+  }
+
+  .dark-mode-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: yellow; /* Adjust icon color */
+    transition: color 0.3s;
+  }
+
+  .dark-mode-toggle:hover {
+    color: #888; /* Adjust hover color */
   }
 </style>
