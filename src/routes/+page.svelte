@@ -51,12 +51,12 @@
   font-size: 4.5rem;
   text-align: center;
   margin-top: 6vh;
-  color: var(--white);
+  color: var(--text-color);
 }
 
   h2 {
     text-align: center;
-    color: var(--white);
+    color: var(--text-color);
   }
   
   .type-animation {
