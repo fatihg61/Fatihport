@@ -1,38 +1,30 @@
 <script>
   import { onMount } from 'svelte';
-  import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 
   let showOverlay = false;
+  let isDarkMode = false;
 
   onMount(() => {
     const menuHideBtn = document.getElementById("menu-hide-btn");
     menuHideBtn.addEventListener("click", () => (showOverlay = false)); // Use Svelte's reactivity for overlay state
+
+    // Load dark mode preference from localStorage
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      isDarkMode = savedTheme === "dark";
+      applyTheme();
+    }
   });
 
-  let darkMode = false;
-
-onMount(() => {
-  const savedMode = localStorage.getItem('darkMode');
-  if (savedMode !== null) {
-    darkMode = savedMode === 'true';
+  const toggleDarkMode = () => {
+    isDarkMode = !isDarkMode;
+    localStorage.setItem("theme", isDarkMode ? "dark" : "light");
     applyTheme();
-  }
-});
+  };
 
-function toggleDarkMode() {
-  darkMode = !darkMode;
-  localStorage.setItem('darkMode', darkMode.toString());
-  applyTheme();
-}
-
-function applyTheme() {
-  const body = document.body;
-  if (darkMode) {
-    body.classList.add('dark-mode');
-  } else {
-    body.classList.remove('dark-mode');
-  }
-}
+  const applyTheme = () => {
+    document.documentElement.setAttribute("data-theme", isDarkMode ? "dark" : "light");
+  };
 </script>
 
 <header>
@@ -41,14 +33,6 @@ function applyTheme() {
       <a href="/" class="nav-brand">Fatih G.</a>
       <button type="button" on:click={() => (showOverlay = true)}>
         <i class="fas fa-bars"></i>
-      </button>
-
-      <button class="dark-mode-toggle" on:click={toggleDarkMode}>
-        {#if darkMode}
-          <i class="fas fa-sun"></i> <!-- Sun icon for light mode -->
-        {:else}
-          <i class="fas fa-moon"></i> <!-- Moon icon for dark mode -->
-        {/if}
       </button>
 
       <div class="nav-overlay" class:show-overlay={showOverlay}>
@@ -64,16 +48,15 @@ function applyTheme() {
           </ul>
           <ul class="nav-icons">
             <li>
-              <a href="https://github.com/fatihg61">
-                <i class="fab fa-github"></i>
-              </a>
+              <button type="button" on:click={toggleDarkMode}>
+                <i class="fas {isDarkMode ? 'fa-sun' : 'fa-moon'}"></i>
+              </button>
             </li>
           </ul>
         </div>
       </div>
     </div>
   </nav>
-
 </header>
 
 <style>
@@ -81,9 +64,11 @@ function applyTheme() {
     color: var(--text-color);
     text-decoration: none;
   }
+
   ul {
     list-style-type: none;
   }
+
   button {
     background-color: transparent;
     color: var(--text-color);
@@ -92,9 +77,11 @@ function applyTheme() {
     cursor: pointer;
     transition: all 300ms ease-in-out;
   }
+
   button:hover {
     opacity: 0.9;
   }
+
   .nav-brand {
     color: var(--text-color);
     font-size: 30px;
@@ -105,6 +92,7 @@ function applyTheme() {
   .nav-menu {
     background-color: var(--background);
   }
+
   .nav-container {
     max-width: 1600px;
     margin: 0 auto;
@@ -113,6 +101,7 @@ function applyTheme() {
     justify-content: space-between;
     align-items: center;
   }
+
   .nav-overlay {
     position: fixed;
     top: 0;
@@ -145,6 +134,7 @@ function applyTheme() {
     box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.2);
     position: relative;
   }
+
   #menu-hide-btn {
     position: absolute;
     right: -20px;
@@ -156,10 +146,12 @@ function applyTheme() {
     background-color: var(--white-color);
     color: var(--text-color);
   }
+
   .nav-links li {
     margin: 16px 0;
     position: relative;
   }
+
   .nav-links li::before,
   .nav-links li::after {
     content: "";
@@ -170,19 +162,23 @@ function applyTheme() {
     opacity: 0;
     transition: all 300ms ease-in-out;
   }
+
   .nav-links li::before {
     top: 0;
     left: 0;
   }
+
   .nav-links li::after {
     bottom: 0;
     right: 0;
   }
+
   .nav-links li:hover::before,
   .nav-links li:hover::after {
     width: 75%;
     opacity: 1;
   }
+
   .nav-links li a {
     text-transform: uppercase;
     font-size: 40px;
@@ -190,47 +186,33 @@ function applyTheme() {
     font-weight: 700;
     transition: all 300ms ease-in-out;
   }
+
   .nav-links li:hover a {
     color: var(--pink-color);
   }
+
   .nav-icons {
     display: flex;
     align-items: center;
     margin-top: 20px;
   }
+
   .nav-icons li {
-    border: 1px solid var(--grey-color);
     width: 35px;
     height: 35px;
     margin: 0 5px;
     line-height: 35px;
-    border-radius: 50%;
     transition: all 300ms ease-in-out;
   }
-  .nav-icons li:hover {
-    background-color: var(--pink-color);
-    border-color: var(--pink-color);
-  }
+
 
   @media (max-width: 600px) {
     .nav-links li a {
       font-size: 22px;
     }
+
     .nav-overlay {
       padding: 30px;
     }
-  }
-
-  .dark-mode-toggle {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 24px;
-    color: yellow; /* Adjust icon color */
-    transition: color 0.3s;
-  }
-
-  .dark-mode-toggle:hover {
-    color: #888; /* Adjust hover color */
   }
 </style>

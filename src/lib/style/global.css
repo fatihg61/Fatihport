@@ -1,9 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
 
 * {
-  padding: 0;
-  margin: 0;
+  border: 0;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 :root {
@@ -16,6 +17,21 @@
   --background: #ffffff; /* Light background color */
   --text-color: #000000; /* Light text color */
   --overlay-color: #f0f0f0; /* Light overlay color */
+  --hue: 223;
+  --bg: hsl(var(--hue), 10%, 100%);
+  --fg: hsl(var(--hue), 10%, 0%);
+  --primary: hsl(var(--hue), 90%, 55%);
+  --primaryT: hsla(var(--hue), 90%, 55%, 0);
+  --transDur: 0.3s;
+  font-size: calc(16px + (32 - 16) * (100vw - 320px) / (1280 - 320));
+}
+
+[data-theme="dark"] {
+  --background: #121212;
+  --text-color: #e0e0e0;
+  --overlay-color: rgba(18, 18, 18, 0.9);
+  --white-color: #333333;
+  --grey-color: #888888;
 }
 
 .dark-mode {
@@ -25,6 +41,7 @@
 }
 
 html,
+input,
 body {
   margin: 0;
   padding: 0;
@@ -32,5 +49,8 @@ body {
   height: 100vh;
   font-family: "Poppins", sans-serif, "Open sans";
   background-color: var(--background);
+  font: 1em / 1.5 Fredoka, sans-serif;
+  place-items: center;
+
 }
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
