@@ -1,5 +1,3 @@
-<script>
-</script>
 
 <main>
   <section class="hero">
@@ -9,15 +7,15 @@
       </div>
       <h1 class="hero--title">Hello, I'm Fatih</h1>
       <p class="hero--desc">
-        I'm a 25-year-old front-end student based in
-        Amsterdam, North Holland, Netherlands. I am passionate about creating
-        beautiful and user-friendly web experiences. I am currently learning
-        HTML, CSS, JavaScript, and SvelteKit at the Amsterdam University of
-        Applied Science FDND. I am also interested in learning about other
-        front-end development technologies, such as React and Angular.
+        I'm a 25-year-old front-end student based in Amsterdam, North Holland,
+        Netherlands. I am passionate about creating beautiful and user-friendly
+        web experiences.
       </p>
     </div>
   </section>
+
+  
+
 </main>
 
 <style>

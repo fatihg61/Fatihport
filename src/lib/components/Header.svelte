@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from 'svelte';
+  import { onMount } from "svelte";
 
   let showOverlay = false;
   let isDarkMode = false;
@@ -23,7 +23,10 @@
   };
 
   const applyTheme = () => {
-    document.documentElement.setAttribute("data-theme", isDarkMode ? "dark" : "light");
+    document.documentElement.setAttribute(
+      "data-theme",
+      isDarkMode ? "dark" : "light"
+    );
   };
 </script>
 
@@ -204,7 +207,6 @@
     line-height: 35px;
     transition: all 300ms ease-in-out;
   }
-
 
   @media (max-width: 600px) {
     .nav-links li a {
