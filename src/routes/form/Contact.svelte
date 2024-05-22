@@ -22,45 +22,41 @@
     }
   </script>
   
-  <section class="form-container">
+<section class="form-container">
     <form method="POST" use:enhance={handleEnhance} on:submit={() => isSubmitting = true} class="contact-form">
-      <div class="form-wrapper">
-        <label for="name" class="form-label">Name</label>
-        <div class="input-wrapper">
-          <input type="text" name="name" id="name" required placeholder="e.g John Doe" class="input-field">
-        </div>
-      </div>
-      <div class="form-wrapper">
-        <label for="email" class="form-label">Email</label>
-        <div class="input-wrapper">
-          <input type="email" name="email" id="email" required placeholder="e.g johndoe@mail.com" class="input-field">
-        </div>
-      </div>
-      <div class="form-wrapper">
-        <label for="phone" class="form-label">phone</label>
-        <div class="input-wrapper">
-          <input type="tel" name="phone" id="phone" required placeholder="mobile number" class="input-field">
-        </div>
-      </div>
-      <div class="form-wrapper">
-        <label for="message" class="form-label">message</label>
-        <div class="input-wrapper">
-          <textarea name="message" id="message" required placeholder="Tell me your message..." class="input-field"></textarea>
-        </div>
-      </div>
-      {#if successMessage}
-        <p class="success-message">{successMessage}</p>
-      {/if}
-      {#if errorMessage}
-        <p class="error-message">{errorMessage}</p>
-      {/if}
-      <button type="submit" class="btn btn-primary" disabled={isSubmitting}>
-        {#if isSubmitting}
-          Versturen...
-        {:else}
-          Verstuur
+        <fieldset class="form-wrapper">
+            <legend class="form-legend">Personal Information</legend>
+            <label for="name" class="form-label"><span>Name</span></label>
+            <input type="text" name="name" id="name" required placeholder="e.g John Doe" class="input-field">
+            
+            <label for="email" class="form-label"><span>Email</span></label>
+            <input type="email" name="email" id="email" required placeholder="e.g johndoe@mail.com" class="input-field">
+            
+            <label for="phone" class="form-label"><span>Phone</span></label>
+            <input type="tel" name="phone" id="phone" required placeholder="Mobile number" class="input-field">
+        </fieldset>
+        
+        <fieldset class="form-wrapper">
+            <legend class="form-legend">Message</legend>
+            <label for="message" class="form-label"><span>Message</span></label>
+            <textarea name="message" id="message" required placeholder="Tell me your message..." class="input-field"></textarea>
+        </fieldset>
+        
+        {#if successMessage}
+            <p class="success-message">{successMessage}</p>
         {/if}
-      </button>
+        
+        {#if errorMessage}
+            <p class="error-message">{errorMessage}</p>
+        {/if}
+        
+        <button type="submit" class="btn btn-primary" disabled={isSubmitting}>
+            {#if isSubmitting}
+                Versturen...
+            {:else}
+                Verstuur
+            {/if}
+        </button>
     </form>
 </section>
 
@@ -68,8 +64,8 @@
 /* Section Styling */
 .form-container {
     width: 100%;
-    max-width: 400px;  /* Reduced maximum width */
-    margin: 20px auto; /* Centering the form horizontally */
+    max-width: 400px;
+    margin: 20px auto;
     padding: 20px;
     background: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -80,14 +76,21 @@
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 12px;  /* Reduced gap between elements */
+    gap: 12px;
 }
 
 /* Wrapper for Form Elements */
 .form-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 4px;  /* Reduced gap between label and input */
+    gap: 12px;
+}
+
+/* Legends */
+.form-legend {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
 }
 
 /* Labels */
@@ -98,14 +101,9 @@
 }
 
 /* Input and Textarea Styling */
-.input-wrapper {
-    position: relative;
-}
-
 .input-field {
     width: 100%;
-    height: 50%;
-    padding: 8px 12px;  /* Reduced padding */
+    padding: 8px 12px;
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -119,8 +117,8 @@
 
 /* Button Styling */
 .btn {
-    padding: 10px 14px;  /* Reduced padding */
-    font-size: 14px;     /* Reduced font size */
+    padding: 10px 14px;
+    font-size: 14px;
     font-weight: bold;
     text-align: center;
     border: none;
@@ -148,7 +146,7 @@
 .error-message {
     font-size: 14px;
     font-weight: bold;
-    padding: 8px;  /* Reduced padding */
+    padding: 8px;
     border-radius: 4px;
 }
 
