@@ -34,6 +34,11 @@
   <nav class="nav-menu">
     <div class="nav-container">
       <a href="/" class="nav-brand">Fatih G.</a>
+
+      <button type="button" on:click={toggleDarkMode}>
+        <i class="fas {isDarkMode ? 'fa-sun' : 'fa-moon'}"></i>
+      </button>
+
       <button type="button" on:click={() => (showOverlay = true)}>
         <i class="fas fa-bars"></i>
       </button>
@@ -48,13 +53,6 @@
             <li><a href="/">home</a></li>
             <li><a href="/">portfolio</a></li>
             <li><a href="mailto:fkg061@gmail.com">contact</a></li>
-          </ul>
-          <ul class="nav-icons">
-            <li>
-              <button type="button" on:click={toggleDarkMode}>
-                <i class="fas {isDarkMode ? 'fa-sun' : 'fa-moon'}"></i>
-              </button>
-            </li>
           </ul>
         </div>
       </div>
@@ -192,20 +190,6 @@
 
   .nav-links li:hover a {
     color: var(--pink-color);
-  }
-
-  .nav-icons {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-  }
-
-  .nav-icons li {
-    width: 35px;
-    height: 35px;
-    margin: 0 5px;
-    line-height: 35px;
-    transition: all 300ms ease-in-out;
   }
 
   @media (max-width: 600px) {
