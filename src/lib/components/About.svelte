@@ -1,5 +1,5 @@
 
-<main>
+
   <section class="hero">
     <div class="container">
       <div class="img--cover">
@@ -13,10 +13,6 @@
       </p>
     </div>
   </section>
-
-  
-
-</main>
 
 <style>
   .container {

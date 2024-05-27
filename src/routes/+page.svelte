@@ -5,6 +5,8 @@
   import Contact from "./form/Contact.svelte";
 </script>
 
+<body>
+
 <Header />
 
 <About />
@@ -13,4 +15,4 @@
 
 <Footer />
 
-
+</body>
