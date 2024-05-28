@@ -80,55 +80,72 @@
   >
     <fieldset class="form-wrapper">
       <legend class="form-legend">Personal Information</legend>
-      <label for="name" class="form-label"><span>Name</span></label>
-      <input
-        type="text"
-        name="name"
-        id="name"
-        required
-        placeholder="e.g John Doe"
-        class="input-field {errors.name ? 'input-error' : validity.name ? 'input-success' : ''}"
-      />
+      <label for="name" class="form-label">
+        <span>Name</span>
+        <div class="input-wrapper">
+          <i class="icon user-icon"></i>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            required
+            placeholder="e.g John Doe"
+            class="input-field {errors.name ? 'input-error' : validity.name ? 'input-success' : ''}"
+          />
+        </div>
+      </label>
       {#if errors.name}
         <p class="error-message">{errors.name}</p>
       {/if}
 
-      <label for="email" class="form-label"><span>Email</span></label>
-      <input
-        type="email"
-        name="email"
-        id="email"
-        required
-        placeholder="e.g johndoe@mail.com"
-        class="input-field {errors.email ? 'input-error' : validity.email ? 'input-success' : ''}"
-      />
+      <label for="email" class="form-label">
+        <span>Email</span>
+        <div class="input-wrapper">
+          <i class="icon email-icon"></i>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            required
+            placeholder="e.g johndoe@mail.com"
+            class="input-field {errors.email ? 'input-error' : validity.email ? 'input-success' : ''}"
+          />
+        </div>
+      </label>
       {#if errors.email}
         <p class="error-message">{errors.email}</p>
       {/if}
 
-      <label for="phone" class="form-label"><span>Phone</span></label>
-      <input
-        type="tel"
-        name="phone"
-        id="phone"
-        required
-        placeholder="Mobile number"
-        class="input-field {errors.phone ? 'input-error' : validity.phone ? 'input-success' : ''}"
-      />
+      <label for="phone" class="form-label">
+        <span>Phone</span>
+        <div class="input-wrapper">
+          <i class="icon phone-icon"></i>
+          <input
+            type="tel"
+            name="phone"
+            id="phone"
+            required
+            placeholder="Mobile number"
+            class="input-field {errors.phone ? 'input-error' : validity.phone ? 'input-success' : ''}"
+          />
+        </div>
+      </label>
       {#if errors.phone}
         <p class="error-message">{errors.phone}</p>
       {/if}
     </fieldset>
 
     <fieldset class="form-wrapper">
-      <label for="message" class="form-label"><span>Message</span></label>
-      <textarea
-        name="message"
-        id="message"
-        required
-        placeholder="Tell me your message..."
-        class="input-field textarea-field {errors.message ? 'input-error' : validity.message ? 'input-success' : ''}"
-      ></textarea>
+      <label for="message" class="form-label">
+        <span>Message</span>
+        <textarea
+          name="message"
+          id="message"
+          required
+          placeholder="Tell me your message..."
+          class="input-field textarea-field {errors.message ? 'input-error' : validity.message ? 'input-success' : ''}"
+        ></textarea>
+      </label>
       {#if errors.message}
         <p class="error-message">{errors.message}</p>
       {/if}
@@ -156,48 +173,73 @@
   /* Section Styling */
   .form-container {
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     margin: 40px auto;
-    padding: 20px;
-    background: #f8f9fa;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    background: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
+    border: 1px solid #e0e0e0;
   }
 
   /* Form Styling */
   .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 25px;
   }
 
   /* Wrapper for Form Elements */
   .form-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 20px;
   }
 
   /* Legends */
   .form-legend {
     font-weight: bold;
-    font-size: 18px;
-    color: #495057;
+    font-size: 22px;
+    color: #343a40;
+    margin-bottom: 15px;
   }
 
   /* Labels */
   .form-label {
     font-weight: bold;
-    font-size: 15px;
+    font-size: 16px;
     color: #495057;
+    margin-bottom: 8px;
+  }
+
+  .form-label span {
+    display: block;
     margin-bottom: 5px;
   }
+
+  /* Input Wrapper for Icons */
+  .input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .icon {
+    position: absolute;
+    left: 10px;
+    color: #6c757d;
+    font-size: 18px;
+  }
+
+  .user-icon::before { content: "👤"; }
+  .email-icon::before { content: "📧"; }
+  .phone-icon::before { content: "📞"; }
 
   /* Input and Textarea Styling */
   .input-field, .textarea-field {
     width: 100%;
-    padding: 10px 14px;
-    font-size: 15px;
+    padding: 12px 15px 12px 40px;
+    font-size: 16px;
     border: 1px solid #ced4da;
     border-radius: 5px;
     transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -205,11 +247,12 @@
 
   .input-field:focus, .textarea-field:focus {
     outline: none;
-    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0,123,255,.5);
   }
 
   .textarea-field {
-    min-height: 100px;
+    min-height: 150px;
   }
 
   .input-error {
@@ -223,13 +266,13 @@
   /* Button Styling */
   .btn {
     padding: 12px 16px;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: bold;
     text-align: center;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform 0.2s;
   }
 
   .btn-primary {
@@ -240,6 +283,7 @@
   .btn-primary:hover {
     background-color: #0056b3;
     box-shadow: 0 4px 8px rgba(0, 91, 187, 0.2);
+    transform: translateY(-2px);
   }
 
   .btn-primary:disabled {
@@ -250,7 +294,7 @@
   /* Success and Error Messages */
   .success-message,
   .error-message {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: bold;
     padding: 12px;
     border-radius: 5px;
