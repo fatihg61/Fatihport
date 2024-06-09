@@ -71,7 +71,9 @@
   });
 </script>
 
-<section class="form-container">
+<button popovertarget="my-popover"> Open Popover </button>
+
+<section id="my-popover" popover class="form-container">
   <form
     method="POST"
     use:enhance={handleEnhance}
@@ -170,6 +172,56 @@
 </section>
 
 <style>
+        button {
+            background: linear-gradient(135deg, #6B73FF 0%, #000DFF 100%);
+            color: white;
+            font-weight: 800;
+            border: 2px solid black;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #000DFF 0%, #6B73FF 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        #my-popover {
+            background: #333;
+            color: white;
+            font-weight: 400;
+            padding: 1rem;
+            max-width: 250px;
+            line-height: 1.6;
+            position: fixed;
+            bottom: 70px;
+            right: 20px;
+            border: 1px solid #444;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
   /* Section Styling */
   .form-container {
     width: 100%;
