@@ -1,6 +1,6 @@
 <script>
   import { enhance } from "$app/forms";
-  import { onMount } from 'svelte';
+  import { onMount } from "svelte";
 
   let isSubmitting = false;
   let successMessage = "";
@@ -9,13 +9,13 @@
     name: "",
     email: "",
     phone: "",
-    message: ""
+    message: "",
   };
   let validity = {
     name: false,
     email: false,
     phone: false,
-    message: false
+    message: false,
   };
 
   function handleEnhance({ formElement }) {
@@ -37,20 +37,20 @@
 
   function validateField(name, value) {
     switch (name) {
-      case 'name':
+      case "name":
         if (!value) return "Name is required";
         return "";
-      case 'email':
+      case "email":
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!value) return "Email is required";
         if (!emailRegex.test(value)) return "Invalid email format";
         return "";
-      case 'phone':
+      case "phone":
         const phoneRegex = /^\d{10,15}$/;
         if (!value) return "Phone is required";
         if (!phoneRegex.test(value)) return "Invalid phone number";
         return "";
-      case 'message':
+      case "message":
         if (!value) return "Message is required";
         return "";
       default:
@@ -66,14 +66,13 @@
   }
 
   onMount(() => {
-    const form = document.querySelector('form');
-    form.addEventListener('input', handleInput);
+    const form = document.querySelector("form");
+    form.addEventListener("input", handleInput);
   });
 </script>
 
-<button popovertarget="my-popover"> Open Popover </button>
 
-<section id="my-popover" popover class="form-container">
+<section id="my-popover" class="form-container">
   <form
     method="POST"
     use:enhance={handleEnhance}
@@ -92,7 +91,11 @@
             id="name"
             required
             placeholder="e.g John Doe"
-            class="input-field {errors.name ? 'input-error' : validity.name ? 'input-success' : ''}"
+            class="input-field {errors.name
+              ? 'input-error'
+              : validity.name
+                ? 'input-success'
+                : ''}"
           />
         </div>
       </label>
@@ -110,7 +113,11 @@
             id="email"
             required
             placeholder="e.g johndoe@mail.com"
-            class="input-field {errors.email ? 'input-error' : validity.email ? 'input-success' : ''}"
+            class="input-field {errors.email
+              ? 'input-error'
+              : validity.email
+                ? 'input-success'
+                : ''}"
           />
         </div>
       </label>
@@ -128,7 +135,11 @@
             id="phone"
             required
             placeholder="Mobile number"
-            class="input-field {errors.phone ? 'input-error' : validity.phone ? 'input-success' : ''}"
+            class="input-field {errors.phone
+              ? 'input-error'
+              : validity.phone
+                ? 'input-success'
+                : ''}"
           />
         </div>
       </label>
@@ -145,7 +156,11 @@
           id="message"
           required
           placeholder="Tell me your message..."
-          class="input-field textarea-field {errors.message ? 'input-error' : validity.message ? 'input-success' : ''}"
+          class="input-field textarea-field {errors.message
+            ? 'input-error'
+            : validity.message
+              ? 'input-success'
+              : ''}"
         ></textarea>
       </label>
       {#if errors.message}
@@ -172,56 +187,6 @@
 </section>
 
 <style>
-        button {
-            background: linear-gradient(135deg, #6B73FF 0%, #000DFF 100%);
-            color: white;
-            font-weight: 800;
-            border: 2px solid black;
-            padding: 15px 30px;
-            font-size: 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-        }
-
-        button:hover {
-            background: linear-gradient(135deg, #000DFF 0%, #6B73FF 100%);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        #my-popover {
-            background: #333;
-            color: white;
-            font-weight: 400;
-            padding: 1rem;
-            max-width: 250px;
-            line-height: 1.6;
-            position: fixed;
-            bottom: 70px;
-            right: 20px;
-            border: 1px solid #444;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: none;
-            animation: fadeIn 0.3s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
   /* Section Styling */
   .form-container {
     width: 100%;
@@ -283,24 +248,34 @@
     font-size: 18px;
   }
 
-  .user-icon::before { content: "👤"; }
-  .email-icon::before { content: "📧"; }
-  .phone-icon::before { content: "📞"; }
+  .user-icon::before {
+    content: "👤";
+  }
+  .email-icon::before {
+    content: "📧";
+  }
+  .phone-icon::before {
+    content: "📞";
+  }
 
   /* Input and Textarea Styling */
-  .input-field, .textarea-field {
+  .input-field,
+  .textarea-field {
     width: 100%;
     padding: 12px 15px 12px 40px;
     font-size: 16px;
     border: 1px solid #ced4da;
     border-radius: 5px;
-    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    transition:
+      border-color 0.3s ease-in-out,
+      box-shadow 0.3s ease-in-out;
   }
 
-  .input-field:focus, .textarea-field:focus {
+  .input-field:focus,
+  .textarea-field:focus {
     outline: none;
     border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0,123,255,.5);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
   }
 
   .textarea-field {
@@ -324,7 +299,10 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform 0.2s;
+    transition:
+      background-color 0.3s ease-in-out,
+      box-shadow 0.3s ease-in-out,
+      transform 0.2s;
   }
 
   .btn-primary {
