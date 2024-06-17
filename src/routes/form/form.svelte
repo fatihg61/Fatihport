@@ -71,127 +71,162 @@
   });
 </script>
 
+<button id="styled-popover-button" popovertarget="my-popover"
+  >Open Popover</button
+>
 
-<section id="my-popover" class="form-container">
-  <form
-    method="POST"
-    use:enhance={handleEnhance}
-    on:submit={() => (isSubmitting = true)}
-    class="contact-form"
-  >
-    <fieldset class="form-wrapper">
-      <legend class="form-legend">Personal Information</legend>
-      <label for="name" class="form-label">
-        <span>Name</span>
-        <div class="input-wrapper">
-          <i class="icon user-icon"></i>
-          <input
-            type="text"
-            name="name"
-            id="name"
+<section id="my-popover" popover>
+  <section class="form-container">
+    <form
+      method="POST"
+      use:enhance={handleEnhance}
+      on:submit={() => (isSubmitting = true)}
+      class="contact-form"
+    >
+      <fieldset class="form-wrapper">
+        <legend class="form-legend">Personal Information</legend>
+        <label for="name" class="form-label">
+          <span>Name</span>
+          <div class="input-wrapper">
+            <i class="icon user-icon"></i>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              required
+              placeholder="e.g John Doe"
+              class="input-field {errors.name
+                ? 'input-error'
+                : validity.name
+                  ? 'input-success'
+                  : ''}"
+            />
+          </div>
+        </label>
+        {#if errors.name}
+          <p class="error-message">{errors.name}</p>
+        {/if}
+
+        <label for="email" class="form-label">
+          <span>Email</span>
+          <div class="input-wrapper">
+            <i class="icon email-icon"></i>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              required
+              placeholder="e.g johndoe@mail.com"
+              class="input-field {errors.email
+                ? 'input-error'
+                : validity.email
+                  ? 'input-success'
+                  : ''}"
+            />
+          </div>
+        </label>
+        {#if errors.email}
+          <p class="error-message">{errors.email}</p>
+        {/if}
+
+        <label for="phone" class="form-label">
+          <span>Phone</span>
+          <div class="input-wrapper">
+            <i class="icon phone-icon"></i>
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              required
+              placeholder="Mobile number"
+              class="input-field {errors.phone
+                ? 'input-error'
+                : validity.phone
+                  ? 'input-success'
+                  : ''}"
+            />
+          </div>
+        </label>
+        {#if errors.phone}
+          <p class="error-message">{errors.phone}</p>
+        {/if}
+      </fieldset>
+
+      <fieldset class="form-wrapper">
+        <label for="message" class="form-label">
+          <span>Message</span>
+          <textarea
+            name="message"
+            id="message"
             required
-            placeholder="e.g John Doe"
-            class="input-field {errors.name
+            placeholder="Tell me your message..."
+            class="input-field textarea-field {errors.message
               ? 'input-error'
-              : validity.name
+              : validity.message
                 ? 'input-success'
                 : ''}"
-          />
-        </div>
-      </label>
-      {#if errors.name}
-        <p class="error-message">{errors.name}</p>
+          ></textarea>
+        </label>
+        {#if errors.message}
+          <p class="error-message">{errors.message}</p>
+        {/if}
+      </fieldset>
+
+      {#if successMessage}
+        <p class="success-message">{successMessage}</p>
       {/if}
 
-      <label for="email" class="form-label">
-        <span>Email</span>
-        <div class="input-wrapper">
-          <i class="icon email-icon"></i>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            required
-            placeholder="e.g johndoe@mail.com"
-            class="input-field {errors.email
-              ? 'input-error'
-              : validity.email
-                ? 'input-success'
-                : ''}"
-          />
-        </div>
-      </label>
-      {#if errors.email}
-        <p class="error-message">{errors.email}</p>
+      {#if errorMessage}
+        <p class="error-message">{errorMessage}</p>
       {/if}
 
-      <label for="phone" class="form-label">
-        <span>Phone</span>
-        <div class="input-wrapper">
-          <i class="icon phone-icon"></i>
-          <input
-            type="tel"
-            name="phone"
-            id="phone"
-            required
-            placeholder="Mobile number"
-            class="input-field {errors.phone
-              ? 'input-error'
-              : validity.phone
-                ? 'input-success'
-                : ''}"
-          />
-        </div>
-      </label>
-      {#if errors.phone}
-        <p class="error-message">{errors.phone}</p>
-      {/if}
-    </fieldset>
-
-    <fieldset class="form-wrapper">
-      <label for="message" class="form-label">
-        <span>Message</span>
-        <textarea
-          name="message"
-          id="message"
-          required
-          placeholder="Tell me your message..."
-          class="input-field textarea-field {errors.message
-            ? 'input-error'
-            : validity.message
-              ? 'input-success'
-              : ''}"
-        ></textarea>
-      </label>
-      {#if errors.message}
-        <p class="error-message">{errors.message}</p>
-      {/if}
-    </fieldset>
-
-    {#if successMessage}
-      <p class="success-message">{successMessage}</p>
-    {/if}
-
-    {#if errorMessage}
-      <p class="error-message">{errorMessage}</p>
-    {/if}
-
-    <button type="submit" class="btn btn-primary" disabled={isSubmitting}>
-      {#if isSubmitting}
-        Sending...
-      {:else}
-        Send
-      {/if}
-    </button>
-  </form>
+      <button type="submit" class="btn btn-primary" disabled={isSubmitting}>
+        {#if isSubmitting}
+          Sending...
+        {:else}
+          Send
+        {/if}
+      </button>
+    </form>
+  </section>
 </section>
 
 <style>
+  #styled-popover-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+  }
+
+  #styled-popover-button:hover {
+    background-color: #0056b3;
+  }
+
+  #styled-popover-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+  }
+
+  #my-popover {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 43%;
+  }
+
   /* Section Styling */
   .form-container {
     width: 100%;
     max-width: 600px;
-    margin: 40px auto;
     padding: 30px;
     background: #fff;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
