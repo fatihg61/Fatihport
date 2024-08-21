@@ -220,7 +220,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 43%;
+    width: 30%;
   }
 
   /* Section Styling */
