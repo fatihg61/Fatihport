@@ -71,9 +71,7 @@
   });
 </script>
 
-<button id="styled-popover-button" popovertarget="my-popover"
-  >Open Popover</button
->
+<button id="styled-popover-button" popovertarget="my-popover">Open Popover</button>
 
 <section id="my-popover" popover>
   <section class="form-container">
@@ -85,93 +83,66 @@
     >
       <fieldset class="form-wrapper">
         <legend class="form-legend">Personal Information</legend>
-        <label for="name" class="form-label">
-          <span>Name</span>
-          <div class="input-wrapper">
-            <i class="icon user-icon"></i>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              required
-              placeholder="e.g John Doe"
-              class="input-field {errors.name
-                ? 'input-error'
-                : validity.name
-                  ? 'input-success'
-                  : ''}"
-            />
-          </div>
-        </label>
-        {#if errors.name}
-          <p class="error-message">{errors.name}</p>
-        {/if}
 
-        <label for="email" class="form-label">
-          <span>Email</span>
-          <div class="input-wrapper">
-            <i class="icon email-icon"></i>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              required
-              placeholder="e.g johndoe@mail.com"
-              class="input-field {errors.email
-                ? 'input-error'
-                : validity.email
-                  ? 'input-success'
-                  : ''}"
-            />
-          </div>
-        </label>
-        {#if errors.email}
-          <p class="error-message">{errors.email}</p>
-        {/if}
+        <!-- Name Field -->
+        <div class="input-group">
+          <input
+            type="text"
+            name="name"
+            id="name"
+            required
+            placeholder=" "
+            class="input-group__input"
+          />
+          <label for="name" class="input-group__label">Name</label>
+          <span class="input-group__error">Please enter a valid name.</span>
+        </div>
 
-        <label for="phone" class="form-label">
-          <span>Phone</span>
-          <div class="input-wrapper">
-            <i class="icon phone-icon"></i>
-            <input
-              type="tel"
-              name="phone"
-              id="phone"
-              required
-              placeholder="Mobile number"
-              class="input-field {errors.phone
-                ? 'input-error'
-                : validity.phone
-                  ? 'input-success'
-                  : ''}"
-            />
-          </div>
-        </label>
-        {#if errors.phone}
-          <p class="error-message">{errors.phone}</p>
-        {/if}
+        <!-- Email Field -->
+        <div class="input-group">
+          <input
+            type="email"
+            name="email"
+            id="email"
+            required
+            placeholder=" "
+            class="input-group__input"
+          />
+          <label for="email" class="input-group__label">Email</label>
+          <span class="input-group__error">Please enter a valid email.</span>
+        </div>
+
+        <!-- Phone Field -->
+        <div class="input-group">
+          <input
+            type="tel"
+            name="phone"
+            id="phone"
+            required
+            placeholder=" "
+            class="input-group__input"
+          />
+          <label for="phone" class="input-group__label">Phone</label>
+          <span class="input-group__error">Please enter a valid phone number.</span>
+        </div>
       </fieldset>
 
+      <!-- Message Field -->
       <fieldset class="form-wrapper">
-        <label for="message" class="form-label">
-          <span>Message</span>
+        <div class="input-group">
           <textarea
             name="message"
             id="message"
             required
-            placeholder="Tell me your message..."
-            class="input-field textarea-field {errors.message
-              ? 'input-error'
-              : validity.message
-                ? 'input-success'
-                : ''}"
+            placeholder=" "
+            class="input-group__input textarea-field"
           ></textarea>
-        </label>
-        {#if errors.message}
-          <p class="error-message">{errors.message}</p>
-        {/if}
+          <label for="message" class="input-group__label">Message</label>
+          <span class="input-group__error">Please enter a valid message.</span>
+        </div>
       </fieldset>
 
+      <!-- Submit Button and Messages -->
       {#if successMessage}
         <p class="success-message">{successMessage}</p>
       {/if}
@@ -192,189 +163,199 @@
 </section>
 
 <style>
-  #styled-popover-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-size: 16px;
-  }
+/* Button Styling */
+#styled-popover-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+}
 
-  #styled-popover-button:hover {
-    background-color: #0056b3;
-  }
+#styled-popover-button:hover {
+  background-color: #0056b3;
+}
 
-  #styled-popover-button:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
-  }
+#styled-popover-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}
 
-  #my-popover {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 30%;
-  }
+/* Popover Styling */
+#my-popover {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+}
 
-  /* Section Styling */
-  .form-container {
-    width: 100%;
-    max-width: 600px;
-    padding: 30px;
-    background: #fff;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    border: 1px solid #e0e0e0;
-  }
+/* Form Container Styling */
+.form-container {
+  width: 100%;
+  max-width: 600px;
+  padding: 30px;
+  background: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+}
 
-  /* Form Styling */
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-  }
+/* Form Styling */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
 
-  /* Wrapper for Form Elements */
-  .form-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
+/* Wrapper for Form Elements */
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 38px;
+}
 
-  /* Legends */
-  .form-legend {
-    font-weight: bold;
-    font-size: 22px;
-    color: #343a40;
-    margin-bottom: 15px;
-  }
+/* Legends */
+.form-legend {
+  font-weight: bold;
+  font-size: 22px;
+  color: #343a40;
+  margin-bottom: 21px;
+}
 
-  /* Labels */
-  .form-label {
-    font-weight: bold;
-    font-size: 16px;
-    color: #495057;
-    margin-bottom: 8px;
-  }
+/* Input Group Styling */
+.input-group {
+  position: relative;
+  margin-bottom: 15px;
+}
 
-  .form-label span {
-    display: block;
-    margin-bottom: 5px;
-  }
+.input-group__label {
+  position: absolute;
+  left: 15px;
+  top: 6px;
+  background-color: white;
+  padding: 0 6px;
+  margin: 0;
+  font-size: 1rem;
+  color: #495057;
+  transition: top 300ms, font-size 300ms, color 300ms;
+  cursor: text;
+}
 
-  /* Input Wrapper for Icons */
-  .input-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-  }
+.input-group__input {
+  width: 100%;
+  padding: 12px 15px;
+  padding-left: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s ease-in-out, padding 300ms ease-in-out;
+}
 
-  .icon {
-    position: absolute;
-    left: 10px;
-    color: #6c757d;
-    font-size: 18px;
-  }
+.input-group__input:focus {
+  outline: none;
+  border-color: #007bff;
+}
 
-  .user-icon::before {
-    content: "👤";
-  }
-  .email-icon::before {
-    content: "📧";
-  }
-  .phone-icon::before {
-    content: "📞";
-  }
+.input-group__input:focus ~ .input-group__label,
+.input-group__input:not(:placeholder-shown) ~ .input-group__label {
+  top: -24px;
+  font-size: 0.85rem;
+  color: #007bff;
+}
 
-  /* Input and Textarea Styling */
-  .input-field,
-  .textarea-field {
-    width: 100%;
-    padding: 12px 15px 12px 40px;
-    font-size: 16px;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    transition:
-      border-color 0.3s ease-in-out,
-      box-shadow 0.3s ease-in-out;
-  }
+.input-group__input:valid:not(:focus) {
+  border-color: #28a745;
+  padding: 12px 15px;
+}
 
-  .input-field:focus,
-  .textarea-field:focus {
-    outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-  }
+.input-group__input:valid:not(:focus) ~ .input-group__label {
+  color: #28a745;
+  top: -28px; /* Reducing gap for valid input */
+  font-size: 0.85rem;
+  transition: top 300ms ease-in-out, color 300ms ease-in-out;
+}
 
-  .textarea-field {
-    min-height: 150px;
-  }
+.input-group__input:invalid:not(:focus) {
+  border-color: #dc3545;
+}
 
-  .input-error {
-    border-color: #dc3545;
-  }
+.input-group__input:invalid:not(:focus) ~ .input-group__label {
+  color: #dc3545;
+}
 
-  .input-success {
-    border-color: #28a745;
-  }
+.input-group__input:invalid:not(:focus) ~ .input-group__error {
+  visibility: visible;
+}
 
-  /* Button Styling */
-  .btn {
-    padding: 12px 16px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition:
-      background-color 0.3s ease-in-out,
-      box-shadow 0.3s ease-in-out,
-      transform 0.2s;
-  }
+.input-group__error {
+  color: #dc3545;
+  font-size: 0.8rem;
+  margin-top: 54px;
+  visibility: hidden;
+  position: absolute;
+  left: 10px;
+}
 
-  .btn-primary {
-    background-color: #007bff;
-    color: #fff;
-  }
+/* Textarea Specific Styling */
+.textarea-field {
+  min-height: 150px;
+}
 
-  .btn-primary:hover {
-    background-color: #0056b3;
-    box-shadow: 0 4px 8px rgba(0, 91, 187, 0.2);
-    transform: translateY(-2px);
-  }
+/* Button Styling */
+.btn {
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform 0.2s;
+}
 
-  .btn-primary:disabled {
-    background-color: #6c757d;
-    cursor: not-allowed;
-  }
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+}
 
-  /* Success and Error Messages */
-  .success-message,
-  .error-message {
-    font-size: 16px;
-    font-weight: bold;
-    padding: 12px;
-    border-radius: 5px;
-    margin-top: 10px;
-  }
+.btn-primary:hover {
+  background-color: #0056b3;
+  box-shadow: 0 4px 8px rgba(0, 91, 187, 0.2);
+  transform: translateY(-2px);
+}
 
-  .success-message {
-    color: #155724;
-    background-color: #d4edda;
-    border-color: #c3e6cb;
-  }
+.btn-primary:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
 
-  .error-message {
-    color: #721c24;
-    background-color: #f8d7da;
-    border-color: #f5c6cb;
-  }
+/* Success and Error Messages */
+.success-message,
+.error-message {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.success-message {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.error-message {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
 </style>
+
