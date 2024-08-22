@@ -23,7 +23,7 @@ Thank you for visiting my portfolio! 😊
 
 Source: 
 
-CSP: https://content-security-policy.com/examples/meta/
-Mailserver: https://www.youtube.com/watch?v=luLYIpLojE0
-Darkmode: https://www.youtube.com/watch?v=_gKEUYarehE
-Validation: https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation + https://dev.to/tracy4code/form-validation-with-javascript-21l6
+- CSP: https://content-security-policy.com/examples/meta/
+- Mailserver: https://www.youtube.com/watch?v=luLYIpLojE0
+- Darkmode: https://www.youtube.com/watch?v=_gKEUYarehE
+- Validation: https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation + https://dev.to/tracy4code/form-validation-with-javascript-21l6
