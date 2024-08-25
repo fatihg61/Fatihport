@@ -157,6 +157,18 @@
         </div>
       {/if}
     </form>
+
+    {#if successMessage}
+      <div class="message success-message">
+        {successMessage}
+      </div>
+    {/if}
+
+    {#if errorMessage}
+      <div class="message error-message">
+        {errorMessage}
+      </div>
+    {/if}
   </section>
 </section>
 
@@ -194,6 +206,33 @@
 /* Adjust form container to make room for loader */
 .form-container {
   position: relative;
+}
+
+/* Message styles */
+.message {
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.success-message {
+  background-color: #d4edda; /* Light green */
+  color: #155724; /* Dark green */
+  border: 1px solid #c3e6cb; /* Slightly darker green */
+}
+
+.error-message {
+  background-color: #f8d7da; /* Light red */
+  color: #721c24; /* Dark red */
+  border: 1px solid #f5c6cb; /* Slightly darker red */
+}
+
+/* Disable button while submitting */
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 #styled-popover-button {
