@@ -237,12 +237,12 @@
 
 .input-group__label {
   position: absolute;
-  left: 15px;
+  left: 10px;
   top: 6px;
   background-color: white;
   padding: 0 6px;
   margin: 0;
-  font-size: 1rem;
+  font-size: .75rem;
   color: #495057;
   transition: top 300ms, font-size 300ms, color 300ms;
   cursor: text;
