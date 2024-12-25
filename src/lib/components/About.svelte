@@ -1,37 +1,51 @@
 <script>
-  import { onMount } from 'svelte';
+  import { onMount } from "svelte";
+
   let typingText = "Hello, I'm Fatih";
   let displayedText = "";
   let index = 0;
+  let typingInterval;
 
   onMount(() => {
-    typeWriter();
-  });
+    typingInterval = setInterval(() => {
+      if (index < typingText.length) {
+        displayedText += typingText.charAt(index);
+        index++;
+      } else {
+        clearInterval(typingInterval);
+      }
+    }, 100);
 
-  function typeWriter() {
-    if (index < typingText.length) {
-      displayedText += typingText.charAt(index);
-      index++;
-      setTimeout(typeWriter, 100);
-    }
-  }
+    // Cleanup interval on component unmount
+    return () => clearInterval(typingInterval);
+  });
 </script>
 
 <section class="hero">
   <div class="container">
     <div class="text-content">
-      <h1 class="hero-title">{displayedText}</h1>
+      <h1 class="hero-title" aria-label={typingText}>{displayedText}</h1>
       <p class="hero-desc">
-        I'm a 25-year-old front-end developer based in Amsterdam, North Holland, Netherlands. I am passionate about creating beautiful and user-friendly web experiences.
+        I'm a 25-year-old front-end developer based in Amsterdam, North Holland,
+        Netherlands. Passionate about creating beautiful and user-friendly web
+        experiences.
       </p>
     </div>
     <div class="img-cover">
-      <img src="/FG.png" alt="Profile Picture" />
+      <img src="/FG.png" alt="Fatih Güler's Profile Picture" />
     </div>
   </div>
 </section>
 
 <style>
+  :root {
+    --container-max-width: 1200px;
+  }
+
+  section.hero {
+    padding: 1rem 0;
+  }
+
   .container {
     display: flex;
     align-items: center;
@@ -41,36 +55,14 @@
     padding: 0 1rem;
   }
 
-  h1, p {
-    color: var(--text-color);
-  }
-
-  section {
-    padding: 3rem 0;
-    background-color: var(--background-color);
-  }
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .hero .img-cover {
-    height: 250px;
-    width: 250px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-top: -20%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
   .text-content {
     flex: 1;
+    padding-right: 2rem;
   }
 
   .hero-title {
     font-size: 2.5rem;
+    margin: 0 0 1rem;
     color: var(--primary-color);
   }
 
@@ -81,10 +73,31 @@
     color: var(--text-color);
   }
 
+  .img-cover {
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: -20%;
+    box-shadow: 0 4px 8px var(--box-shadow-color);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
   @media (max-width: 720px) {
     .container {
       flex-direction: column;
       text-align: center;
+      padding: 0;
+    }
+
+    .text-content {
+      padding-right: 0;
     }
 
     .hero-title {
