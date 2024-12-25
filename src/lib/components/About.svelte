@@ -40,7 +40,6 @@
 <style>
   :root {
     --container-max-width: 1200px;
-    --text-color: #333;
     --primary-color: #007bff;
   }
 
