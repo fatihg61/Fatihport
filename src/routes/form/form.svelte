@@ -173,14 +173,14 @@
 </section>
 
 <style>
-/* Loader container */
+  /* Loader container */
 .loader-container {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+  background: rgba(var(--text-color), 0.8); /* Semi-transparent background */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -189,8 +189,8 @@
 
 /* Professional spinner */
 .loader {
-  border: 8px solid #f3f3f3; /* Light grey */
-  border-top: 8px solid #007bff; /* Blue */
+  border: 8px solid var(--grey-color); /* Light grey */
+  border-top: 8px solid var(--primary-color); /* Blue */
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -240,17 +240,13 @@
   bottom: 20px;
   left: 20px;
   padding: 8px 16px;
-  background-color: #007bff;
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--white-color);
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow);
   font-size: 14px;
-}
-
-#styled-popover-button:hover {
-  background-color: #0056b3;
 }
 
 #styled-popover-button:focus {
@@ -267,38 +263,43 @@
   max-width: 400px;
 }
 
+/* Form container */
 .form-container {
   width: 100%;
   padding: 20px;
-  background: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background: var(--background); /* Use background color from the root */
+  box-shadow: var(--box-shadow);
   border-radius: 8px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--grey-color); /* Use grey color for borders */
 }
 
+/* Contact Form */
 .contact-form {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
+/* Form wrapper */
 .form-wrapper {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
+/* Form legend */
 .form-legend {
   font-weight: bold;
   font-size: 18px;
-  color: #343a40;
+  color: var(--text-color);
   margin-bottom: 10px;
 }
 
+/* Form labels */
 .form-label {
   font-weight: bold;
   font-size: 14px;
-  color: #495057;
+  color: var(--text-color);
   margin-bottom: 5px;
 }
 
@@ -307,6 +308,7 @@
   margin-bottom: 4px;
 }
 
+/* Input wrapper */
 .input-wrapper {
   position: relative;
 }
@@ -314,7 +316,7 @@
 .icon {
   position: absolute;
   left: 8px;
-  color: #6c757d;
+  color: var(--grey-color);
   font-size: 16px;
 }
 
@@ -328,21 +330,24 @@
   content: "📞";
 }
 
+/* Input and textarea fields */
 .input-field,
 .textarea-field {
   width: 100%;
   padding: 10px 12px 10px 36px;
   font-size: 14px;
-  border: 1px solid #ced4da;
+  border: 1px solid var(--grey-color); /* Use grey color for borders */
   border-radius: 4px;
   transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  background-color: var(--white-color); /* White background color */
+  color: var(--text-color); /* Text color */
 }
 
 .input-field:focus,
 .textarea-field:focus {
   outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 4px rgba(var(--primary-color), 0.5);
 }
 
 .input-field:valid,
@@ -361,6 +366,7 @@
   min-height: 100px;
 }
 
+/* Error message */
 .error-message {
   display: none;
   font-size: 12px;
@@ -377,6 +383,7 @@
   display: block;
 }
 
+/* Button styles */
 .btn {
   padding: 10px 14px;
   font-size: 14px;
@@ -386,21 +393,16 @@
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform 0.2s;
-}
-
-.btn-primary {
-  background-color: #007bff;
-  color: #fff;
+  background-color: var(--primary-color);
+  color: var(--white-color);
 }
 
 .btn-primary:hover {
-  background-color: #0056b3;
-  box-shadow: 0 2px 6px rgba(0, 91, 187, 0.2);
-  transform: translateY(-1px);
+  background-color: darken(var(--primary-color), 10%);
 }
 
 .btn-primary:disabled {
-  background-color: #6c757d;
+  background-color: var(--grey-color);
   cursor: not-allowed;
 }
 </style>
