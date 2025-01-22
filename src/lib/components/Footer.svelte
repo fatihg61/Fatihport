@@ -4,10 +4,10 @@
   
   <footer>
     <div class="footer-content">
-      <a href="https://www.linkedin.com/in/fatih-güler" target="_blank" class="footer-link">
+      <a href="https://www.linkedin.com/" target="_blank" class="footer-link">
         <i class="fab fa-linkedin"></i>  <!-- LinkedIn icon -->
       </a>
-      <a href="mailto:fguler.ict@gmail.com" class="footer-link">
+      <a href="mailto:fkg061@gmail.com" class="footer-link">
         <i class="fas fa-envelope"></i> <!-- Email icon -->
       </a>
     </div>
