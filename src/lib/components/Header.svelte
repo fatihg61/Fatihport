@@ -21,7 +21,7 @@
 		padding: 20px 40px;
 		color: #007bff;
 		text-align: center;
-    font-size: 2rem;
+    font-size: 143%;
 	}
 
 	.header-content {
