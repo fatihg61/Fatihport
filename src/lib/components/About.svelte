@@ -26,7 +26,7 @@
     <div class="text-content">
       <h1 class="hero-title" aria-label={typingText}>{displayedText}</h1>
       <p class="hero-desc">
-        I'm a 25-year-old front-end developer based in Amsterdam, North Holland,
+        I'm a young front-end developer based in North Holland,
         Netherlands. Passionate about creating beautiful and user-friendly web
         experiences.
       </p>
