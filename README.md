@@ -1,29 +1,38 @@
-# 📁 Portfolio Project
+# sv
 
-Welcome to my portfolio project! 
+Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
-## 🌟 Features
+## Creating a project
 
-- **Responsive Design**: The portfolio is fully responsive and optimized for all devices, ensuring a seamless experience whether you're on a desktop, tablet, or mobile.
-- **Skills Section**: A detailed overview of the technologies and tools I'm proficient in.
-- **About Me**: Learn more about my background, experience, and what drives me as a professional.
-- **Contact Form**: An easy way to get in touch with me for potential collaborations, job offers, or general inquiries.
+If you're seeing this, you've probably already done this step. Congrats!
 
-## 🛠️ Technologies Used
+```bash
+# create a new project in the current directory
+npx sv create
 
-- **HTML**
-- **CSS**
-- **JavaScript 
-- **Sveltekit
-- **MailServer
+# create a new project in my-app
+npx sv create my-app
+```
 
-Thank you for visiting my portfolio! 😊
+## Developing
 
----
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
-## Source: 
+```bash
+npm run dev
 
-- CSP: https://content-security-policy.com/examples/meta/
-- Mailserver: https://www.youtube.com/watch?v=luLYIpLojE0
-- Darkmode: https://www.youtube.com/watch?v=_gKEUYarehE
-- Validation: https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation + https://dev.to/tracy4code/form-validation-with-javascript-21l6
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
+
+## Building
+
+To create a production version of your app:
+
+```bash
+npm run build
+```
+
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
