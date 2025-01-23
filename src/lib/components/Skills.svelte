@@ -11,7 +11,7 @@
   
   <section class="skills">
     <div class="container">
-      <h2 class="section-title">My Skills</h2>
+      <h2 class="section-title">My Toys</h2>
       <div class="skills-grid">
         {#each skills as skill}
           <div class="skill">
