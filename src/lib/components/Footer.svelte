@@ -7,7 +7,7 @@
       <a href="https://www.linkedin.com/" target="_blank" class="footer-link">
         <i class="fab fa-linkedin"></i>  <!-- LinkedIn icon -->
       </a>
-      <a href="mailto:fkg061@gmail.com" class="footer-link">
+      <a href="mailto:f.g.services@icloud.com" class="footer-link">
         <i class="fas fa-envelope"></i> <!-- Email icon -->
       </a>
     </div>
