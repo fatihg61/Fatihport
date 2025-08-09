@@ -1,0 +1,15 @@
+{
+  "name": "Seyfullah Isa G\u00fcler \u2014 Front-end & M365 Cloud Engineer",
+  "short_name": "Seyfullah",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "theme_color": "#0b0c0f",
+  "background_color": "#0b0c0f",
+  "display": "standalone",
+  "start_url": "/"
+}
