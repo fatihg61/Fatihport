@@ -23,7 +23,6 @@
       <strong style="margin-left:8px">Fatih</strong>
     </a>
     <div class="spacer" />
-    <a class="btn" href="/resume">CV</a>
     <a class="btn" href="/contact">Contact</a>
   </div>
 </nav>
