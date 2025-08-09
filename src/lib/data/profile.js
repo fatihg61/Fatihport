@@ -30,12 +30,12 @@ export const profile = {
       badges: ["Microsoft 365","Automation"]
     },
     {
-      title: "M365 Provisioner",
+      title: "Test",
       desc: "Automatisering voor Teams/SharePoint sites met Graph API + PowerShell.",
       links: [{label:"Case study", url:"#"}],
       badges: ["Microsoft 365","Automation"]
     },    {
-      title: "M365 Provisioner",
+      title: "Test",
       desc: "Automatisering voor Teams/SharePoint sites met Graph API + PowerShell.",
       links: [{label:"Case study", url:"#"}],
       badges: ["Microsoft 365","Automation"]
