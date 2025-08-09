@@ -1,13 +1,8 @@
-<script lang="ts">
+<script >
   import '../lib/styles/app.css';
   import { onMount } from 'svelte';
   export let data;
-  onMount(() => {
-    const saved = localStorage.getItem('theme');
-    if (saved === 'light') {
-      document.documentElement.classList.add('light');
-    }
-  });
+  
 </script>
 
 <svelte:head>
@@ -22,20 +17,19 @@
 </svelte:head>
 
 <nav class="nav">
-  <div class="container row" style="height:64px">
+  <div class="container row" style="min-height:56px">
     <a href="/" class="row" aria-label="Home">
       <img src="/favicon.svg" alt="" width="28" height="28" />
-      <strong style="margin-left:8px">Seyfullah</strong>
+      <strong style="margin-left:8px">Fatih</strong>
     </a>
     <div class="spacer" />
     <a class="btn" href="/resume">CV</a>
     <a class="btn" href="/contact">Contact</a>
-    <button class="btn" on:click={toggleTheme} aria-label="Toggle theme">Thema</button>
   </div>
 </nav>
 
 <slot />
 
 <footer class="footer container">
-  © {new Date().getFullYear()} Seyfullah Isa Güler · Built with SvelteKit
+  © {new Date().getFullYear()} Fatih G · Built with SvelteKit
 </footer>

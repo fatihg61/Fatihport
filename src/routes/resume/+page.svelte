@@ -1,12 +1,12 @@
-<script lang="ts">
-  import { profile } from '$lib/data/profile';
+<script >
+  import { profile } from '$lib/data/profile.js';
 </script>
 
 <section class="container" aria-labelledby="cv">
   <h1 id="cv" class="headline">CV</h1>
   <p class="sub">Een beknopt overzicht — volledige versie op aanvraag.</p>
 
-  <div class="grid" style="margin-top:16px">
+  <div class="auto-grid" style="margin-top:16px">
     <div class="card">
       <h3>Ervaring</h3>
       <ul>

@@ -1,5 +1,5 @@
-<script lang="ts">
-  import { profile } from '$lib/data/profile';
+<script >
+  import { profile } from '$lib/data/profile.js';
 </script>
 
 <section class="container hero" aria-labelledby="intro">
@@ -22,14 +22,12 @@
     </div>
   </div>
 
-  <div style="display:flex;justify-content:center">
-    <img class="avatar" src="/favicon.svg" alt="" />
-  </div>
+
 </section>
 
-<section class="container" aria-labelledby="skills">
+<section class="container" aria-labelledby="skills" style="padding:32px 0">
   <h2 id="skills">Vaardigheden</h2>
-  <div class="grid" style="margin-top:12px">
+  <div class="auto-grid" style="margin-top:12px">
     <div class="card"><strong>Front‑end</strong><br/>{profile.skills.frontend.join(' • ')}</div>
     <div class="card"><strong>Cloud</strong><br/>{profile.skills.cloud.join(' • ')}</div>
     <div class="card"><strong>Tooling</strong><br/>{profile.skills.tooling.join(' • ')}</div>
@@ -38,7 +36,7 @@
 
 <section class="container" aria-labelledby="projects" style="padding:32px 0">
   <h2 id="projects">Projecten</h2>
-  <div class="grid" style="margin-top:12px">
+  <div class="auto-grid" style="margin-top:12px">
     {#each profile.projects as p}
       <article class="card">
         <header class="row" style="justify-content:space-between">
