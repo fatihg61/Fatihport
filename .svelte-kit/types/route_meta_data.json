@@ -1,0 +1,12 @@
+{
+	"/": [],
+	"/api/contact": [
+		"src/routes/api/contact/+server.ts"
+	],
+	"/contact": [],
+	"/projects": [],
+	"/resume": [],
+	"/sitemap.xml": [
+		"src/routes/sitemap.xml/+server.ts"
+	]
+}
