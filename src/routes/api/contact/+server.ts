@@ -1,0 +1,1 @@
+export async function POST({ request }) { const { name, email, message } = await request.json(); console.log('Contact message:', { name, email, message }); return new Response(JSON.stringify({ ok: true }), { status: 200 }); }

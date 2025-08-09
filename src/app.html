@@ -7,8 +7,17 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		%sveltekit.head%
-	</head>
+		
+    <meta name="theme-color" content="#0b0f19" />
+    <meta name="description" content="Microsoft 365 Engineer & Front‑end Developer specializing in SvelteKit and React." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Fatih Guler — Portfolio" />
+    <meta property="og:description" content="Security‑minded, performance‑driven front‑end." />
+    <meta property="og:image" content="/og-image.png" />
+
+    %sveltekit.head%
+	    <link rel="stylesheet" href="/src/styles/global.css">
+  </head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>
