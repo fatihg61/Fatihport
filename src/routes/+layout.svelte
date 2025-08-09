@@ -1,1 +1,0 @@
-<script>import '$styles/global.css'; import Nav from '$lib/components/Nav.svelte'; import Footer from '$lib/components/Footer.svelte'; export let data;</script><Nav current={data?.current||'/'} /><main id='content'><slot /></main><Footer />
