@@ -19,7 +19,7 @@
 <nav class="nav">
   <div class="container row" style="min-height:56px">
     <a href="/" class="row" aria-label="Home">
-      <img src="/favicon.svg" alt="" width="28" height="28" />
+      <img src="/favicon.png" alt="" width="28" height="28" />
       <strong style="margin-left:8px">Fatih</strong>
     </a>
     <div class="spacer" />
